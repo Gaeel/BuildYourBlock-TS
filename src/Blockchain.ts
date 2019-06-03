@@ -23,8 +23,8 @@ export default class Blockchain {
         let previous: string = null;
         let status: boolean = true;
 
-        this.chain.forEach( (block) => {
-            if (previous !== block.previous || ! block.isValid())
+        this.chain.forEach( (block, index) => {
+            if (previous !== block.previous || ! block.isValid() || (block.index === 0 && block.previous !== null) || (block.index !== 0 && block.previous !== this.chain[index - 1].id) )
                 status = false;
             previous = block.id;
         });

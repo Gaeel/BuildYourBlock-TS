@@ -54,7 +54,7 @@ export class Input {
     index: number;
     hash: string;
     signature: string;
-    constructor(tx: Transaction, index: number, signature = undefined) {
+    constructor(tx: Transaction, index: number, signature: string = undefined) {
         this.tx = tx;
         this.index = index;
         this.hash = this.getHash();
